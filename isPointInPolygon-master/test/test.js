@@ -1,4 +1,4 @@
-// https://github.com/hubery1996/isPointInPolygon
+
 import {
   isPointInPolygon,countCircle,numberToRadius,numberToDegree
 } from '../utils/isPointInPolygon.js';
@@ -110,10 +110,20 @@ Page({
        this.setData({
          "polygons[0]": newArray
        })
+       var test={detail:{latitude:'',longitude:''}}
+       test.detail.latitude=36.070400410816774 
+       test.detail.longitude=120.37033081054688
+       this.bindtapMap(test)
+
+       var t2={detail:{latitude:'',longitude:''}}
+       t2.detail.latitude=36.071400410816774 
+       t2.detail.longitude=120.37033081054688
+       this.bindtapMap(t2)
      },
     bindtapMap(e) {
       //创建标记点
       let tapPoint = e.detail;
+      debugger
       let markers = this.data.markers
       let newContent = markers.length
       let markerItem = {
@@ -168,8 +178,9 @@ Page({
         polygons: []
       })
     },
-    onLoad(options) {},
-
+    onLoad(options) {
+      this.creatCircle()
+    }, 
 
   }
 
